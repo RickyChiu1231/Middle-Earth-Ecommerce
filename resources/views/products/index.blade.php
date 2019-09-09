@@ -34,7 +34,7 @@
 
 
 
-<h2><a href="{{ route('products.indexmilk') }}">Milk</a></h2>
+<h2><a href="{{ route('products.indexmilk') }}">Milk product</a></h2>
     <div class="row products-list">
       @foreach($category1->products as $product)
         <div class="col-3 product-item">
