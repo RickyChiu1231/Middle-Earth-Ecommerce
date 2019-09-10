@@ -9,13 +9,21 @@ use App\Models\ProductSku;
 use App\Exceptions\InvalidRequestException;
 use App\Jobs\CloseOrder;
 use Carbon\Carbon;
+use App\Models\CouponCode;
+use App\Exceptions\CouponCodeUnavailableException;
 
 class OrderService
 {
-    public function store(User $user, UserAddress $address, $remark, $items)
+    public function store(User $user, UserAddress $address, $remark, $items, CouponCode $coupon = null)
     {
+        // If the coupon is passed in, first check if it is available
+        if ($coupon) {
+            // Because the total amount of the order has not yet been calculated, it will not be verified first.
+            $coupon->checkAvailable();
+        }
+
         // Create a database transaction
-        $order = \DB::transaction(function () use ($user, $address, $remark, $items) {
+        $order = \DB::transaction(function () use ($user, $address, $remark, $items, $coupon) {
             // Update the last use time of the shipping address
             $address->update(['last_used_at' => Carbon::now()]);
             // Create a order
@@ -48,9 +56,23 @@ class OrderService
                 $item->save();
                 $totalAmount += $sku->price * $data['amount'];
                 if ($sku->decreaseStock($data['amount']) <= 0) {
-                    throw new InvalidRequestException('该商品库存不足');
+                    throw new InvalidRequestException('Insufficient inventory');
                 }
             }
+
+            if ($coupon) {
+                // The total amount has been calculated and checked for compliance with the coupon rules.
+                $coupon->checkAvailable($totalAmount);
+                // order amount should be change to the amount after using the coupon code has been applied.
+                $totalAmount = $coupon->getAdjustedPrice($totalAmount);
+                // Link an order to a coupon
+                $order->couponCode()->associate($coupon);
+                // To increase the amount of coupons, you need to judge the return value.
+                if ($coupon->changeUsed() <= 0) {
+                    throw new CouponCodeUnavailableException('This coupon has been redeemed');
+                }
+            }
+
             // Update the total price of the order
             $order->update(['total_amount' => $totalAmount]);
 
