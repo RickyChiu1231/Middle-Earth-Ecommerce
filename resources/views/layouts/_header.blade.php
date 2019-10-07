@@ -1,9 +1,14 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-static-top">
   <div class="container">
     <!-- Branding Image -->
+<!--
     <a class="navbar-brand " href="{{ url('/') }}">
       Middle-Earth Shop
+    </a> -->
+    <a class="navbar-brand " href="{{ url('/') }}">
+      <img  src="{{ URL::asset('images/mee.png') }}" height="60" width="200" alt="Image">
     </a>
+
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -11,8 +16,17 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <!-- Left Side Of Navbar -->
       <ul class="navbar-nav mr-auto">
-
+    <a class="navbar-brand " href="{{ url('/') }}" >
+          Home
+        </a>
+    <a class="navbar-brand " href="{{ url('products/all') }}">
+      Products
+    </a>
+    <a class="navbar-brand " href="{{ url('/') }}">
+      About Middle-Earth
+    </a>
       </ul>
+
 
       <!-- Right Side Of Navbar -->
       <ul class="navbar-nav navbar-right">

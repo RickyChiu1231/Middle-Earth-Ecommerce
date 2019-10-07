@@ -14,6 +14,8 @@
 Route::redirect('/', '/products')->name('root');
 Route::get('products', 'ProductsController@index')->name('products.index');
 
+Route::get('products/all', 'ProductsController@indexall')->name('products.indexall');
+
 Route::get('products/milk', 'ProductsController@indexmilk')->name('products.indexmilk');
 
 Route::get('products/health', 'ProductsController@indexhealth')->name('products.indexhealth');
