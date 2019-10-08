@@ -9,6 +9,29 @@
 
 
 
+<!-- banner -->
+<div class="col-12">
+<a class="navbar-brand " href="{{ url('/') }}">
+      <img  src="{{ URL::asset('images/welcomebanner.png') }}" height="240" width="850" alt="Milkproduct">
+    </a>
+</div>
+
+<div align="middle">
+<a class="navbar-brand " href="{{ url('/') }}">
+      <img  src="{{ URL::asset('images/healthad.png') }}" height="135" width="270" alt="Milkproduct">
+    </a>
+
+<a class="navbar-brand " href="{{ url('/') }}">
+      <img  src="{{ URL::asset('images/sheepad.png') }}" height="135" width="270" alt="Milkproduct">
+    </a>
+
+<a class="navbar-brand " href="{{ url('/') }}">
+      <img  src="{{ URL::asset('images/milkad.png') }}" height="135" width="270" alt="Milkproduct">
+    </a>
+
+</div>
+
+<!-- End of testing -->
 
 <h2><a href="{{ route('products.indexmilk') }}">Milk product</a></h2>
     <div class="row products-list">

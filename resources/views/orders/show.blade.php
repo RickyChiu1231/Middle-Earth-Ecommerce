@@ -58,7 +58,7 @@
         </div>
         @endif
 
-        <!-- 订单已支付，且退款状态不是未退款时展示退款信息 -->
+        <!-- The order has been paid, and the replacement status is not displayed when the status is not returned. -->
         @if($order->paid_at && $order->refund_status !== \App\Models\Order::REFUND_STATUS_PENDING)
         <div class="line">
           <div class="line-label">Refund status：</div>

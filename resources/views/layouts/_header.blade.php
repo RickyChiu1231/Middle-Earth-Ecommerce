@@ -32,8 +32,9 @@
       <ul class="navbar-nav navbar-right">
         <!-- Login,register link start -->
         @guest
-        <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">Login</a></li>
-        <li class="nav-item"><a class="nav-link" href="{{ route('register') }}">Register</a></li>
+        <img  src="{{ URL::asset('images/login.png') }}" height="28" width="28" alt="Image"><li class="nav-item"><h5><a class="nav-link" href="{{ route('login') }}">Login</a></h5></li></img>
+        <li class="nav-item"><a class="nav-link">or</a></li>
+        <h5><li class="nav-item"><a class="nav-link" href="{{ route('register') }}">Create Account</a></li></h5>
         @else
         <li class="nav-item">
     <a class="nav-link mt-1" href="{{ route('cart.index') }}"><i class="fa fa-shopping-cart"></i></a>

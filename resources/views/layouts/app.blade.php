@@ -9,6 +9,10 @@
     <title>@yield('title', 'Middle Earth Export') - Middle Earth</title>
     <!-- style -->
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
+
+
+
+
 </head>
 <body>
     <div id="app" class="{{ route_class() }}-page">
