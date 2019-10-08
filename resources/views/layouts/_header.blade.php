@@ -18,11 +18,14 @@
       <ul class="navbar-nav mr-auto">
     <a class="navbar-brand " href="{{ url('/') }}" >
           Home
-        </a>
+    </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <a class="navbar-brand " href="{{ url('products/all') }}">
       Products
-    </a>
-    <a class="navbar-brand " href="{{ url('/') }}">
+    </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <a class="navbar-brand " href="{{ url('products/all') }}">
+      Blog
+    </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <a class="navbar-brand " href="{{ url('https://www.bizdb.co.nz/company/9429042069539/#addresses') }}">
       About Middle-Earth
     </a>
       </ul>

@@ -11,11 +11,67 @@
 
 <!-- banner -->
 <div class="col-12">
-<a class="navbar-brand " href="{{ url('/') }}">
+
       <img  src="{{ URL::asset('images/welcomebanner.png') }}" height="240" width="850" alt="Milkproduct">
-    </a>
+
 </div>
 
+
+<div align="middle">
+<table>
+<tr>
+
+
+<td>
+<a href="{{ route('products.indexmilk') }}">
+<div style="position:relative;">
+
+　　<img  src="{{ URL::asset('images/milkad.png') }}" height="135" width="270" alt="Milkproduct">
+
+　　<div style="position:absolute; color:white; z-index:2; left:10px; top:10px">
+　　　　<b>Milk Product</b>
+　　</div>
+</div>
+</a>
+</td>
+
+
+<td>&nbsp;&nbsp;</td>
+
+<td>
+    <a href="{{ route('products.indexhealth') }}">
+<div style="position:relative;">
+
+　　<img  src="{{ URL::asset('images/healthad.png') }}" height="135" width="270" alt="Milkproduct">
+
+　　<div style="position:absolute; color:white; z-index:2; left:10px; top:10px">
+　　　　<b>Health Product</b>
+　　</div>
+</div>
+</a>
+</td>
+
+<td>&nbsp;&nbsp;</td>
+
+<td>
+    <a href="{{ route('products.indexothers') }}">
+<div style="position:relative;">
+
+　　<img  src="{{ URL::asset('images/sheepad.png') }}" height="135" width="270" alt="Milkproduct">
+
+　　<div style="position:absolute; color:white; z-index:2; left:10px; top:10px">
+　　　　<b>Sheep Product</b>
+　　</div>
+</div>
+</a>
+</td>
+
+</tr>
+</table>
+</div>
+<br />
+
+<!--
 <div align="middle">
 <a class="navbar-brand " href="{{ url('/') }}">
       <img  src="{{ URL::asset('images/healthad.png') }}" height="135" width="270" alt="Milkproduct">
@@ -30,6 +86,8 @@
     </a>
 
 </div>
+-->
+
 
 <!-- End of testing -->
 

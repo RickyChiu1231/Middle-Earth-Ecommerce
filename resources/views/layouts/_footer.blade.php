@@ -1,7 +1,7 @@
 <footer class="footer">
   <div class="container">
-    <p class="float-left">
-      By <a href="https://leo108.com" target="_blank">Ricky,Monk,Li</a> Design and Coding <span style="color: #e27575;font-size: 14px;">❤</span>
+    <p class="float-left" align="middle">
+      © 2015-2019 Middle-Earth Export. All rights reserved. Powered by Laravel 5.8.
     </p>
 
     <p class="float-right"><a href="mailto:laiyin101020@gmail.com">Contact Us</a></p>
