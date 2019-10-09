@@ -55,13 +55,13 @@ class CouponCode extends Model
         $str = '';
 
         if ($this->min_amount > 0) {
-            $str = '满'.str_replace('.00', '', $this->min_amount);
+            $str = ' Total '.str_replace('.00', '', $this->min_amount).' get ';
         }
         if ($this->type === self::TYPE_PERCENT) {
-            return $str.'优惠'.str_replace('.00', '', $this->value).'%';
+            return $str.str_replace('.00', '', $this->value).'%'.' discount ';
         }
 
-        return $str.'减'.str_replace('.00', '', $this->value);
+        return $str.' subtract '.str_replace('.00', '', $this->value);
     }
 
     public function checkAvailable($orderAmount = null)
