@@ -22,7 +22,9 @@ Route::get('products/milk', 'ProductsController@indexmilk')->name('products.inde
 
 Route::get('products/health', 'ProductsController@indexhealth')->name('products.indexhealth');
 
-Route::get('products/others', 'ProductsController@indexothers')->name('products.indexothers');
+Route::get('products/sheep', 'ProductsController@indexothers')->name('products.indexothers');
+
+Route::get('products/hotsell', 'ProductsController@indexhotsell')->name('products.indexhotsell');
 
 
 Auth::routes(['verify' => true]);

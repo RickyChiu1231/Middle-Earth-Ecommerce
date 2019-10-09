@@ -97,7 +97,7 @@
       $('[data-toggle="tooltip"]').tooltip({trigger: 'hover'});
       $('.sku-btn').click(function () {
         $('.product-info .price span').text($(this).data('price'));
-        $('.product-info .stock').text('Instock：' + $(this).data('stock') + '件');
+        $('.product-info .stock').text('Instock：' + $(this).data('stock') );
       });
       // Listen to the click event of the favorite button
       $('.btn-favor').click(function () {

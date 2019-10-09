@@ -7,7 +7,7 @@
 <div class="card">
   <div class="card-body">
     <!-- Filter tools start -->
-    <form action="{{ route('products.indexothers') }}" class="search-form">
+    <form action="{{ route('products.indexhotsell') }}" class="search-form">
       <div class="form-row">
         <div class="col-md-9">
           <div class="form-row">
@@ -32,7 +32,7 @@
 
 
 
-<h2 align="center">Sheep product</h2>   </br>
+<h2 align="center">Weekly hot sell product</h2>   </br>
     <div class="row products-list">
       @foreach($products as $product)
         <div class="col-3 product-item">

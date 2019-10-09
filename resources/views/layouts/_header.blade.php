@@ -50,7 +50,7 @@
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <a href="{{ route('user_addresses.index') }}" class="dropdown-item">Shipping Address</a>
             <a href="{{ route('orders.index') }}" class="dropdown-item">My Orders</a>
-            <a href="{{ route('products.favorites') }}" class="dropdown-item">My Favorites</a>
+            <a href="{{ route('products.favorites') }}" class="dropdown-item">Wish List</a>
             <a class="dropdown-item" id="logout" href="#"
                onclick="event.preventDefault();document.getElementById('logout-form').submit();">Sign Out</a>
             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

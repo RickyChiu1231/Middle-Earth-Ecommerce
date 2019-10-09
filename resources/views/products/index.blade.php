@@ -91,9 +91,9 @@
 
 <!-- End of testing -->
 
-<h2><a href="{{ route('products.indexmilk') }}">Milk product</a></h2>
+<h2 ><a style = "color:red" href="{{ route('products.indexhotsell') }}">Hot Sell now!!!</a></h2>
     <div class="row products-list">
-      @foreach($category1->products as $product)
+      @foreach($category4->products as $product)
         <div class="col-3 product-item">
           <div class="product-content">
             <div class="top">
@@ -116,7 +116,7 @@
       @endforeach
     </div>
 
-
+<!--
 
 <h2><a href="{{ route('products.indexhealth') }}">Health</a></h2>
     <div class="row products-list">
@@ -146,7 +146,7 @@
 
 
 
-<h2><a href="{{ route('products.indexothers') }}">Others</a></h2>
+<h2><a href="{{ route('products.indexothers') }}">Sheep</a></h2>
     <div class="row products-list">
       @foreach($category3->products as $product)
         <div class="col-3 product-item">
@@ -170,6 +170,9 @@
         </div>
       @endforeach
     </div>
+-->
+
+
 
   </div>
 </div>
