@@ -2,7 +2,7 @@
 @section('title', 'Order Detail')
 
 @section('content')
-<div class="row">
+<div class="row" id="row-test">
 <div class="col-lg-10 offset-lg-1">
 <div class="card">
   <div class="card-header">
@@ -75,7 +75,7 @@
       <div class="order-summary text-right">
         <div class="total-amount">
           <span>Total Price：</span>
-          <div class="value">${{ $order->total_amount }}</div>
+          <div class="value" id="total-amount">${{ $order->total_amount }}</div>
         </div>
         <div>
           <span>Order status：</span>
@@ -104,8 +104,12 @@
 @if(!$order->paid_at && !$order->closed)
 <div class="payment-buttons">
   <a class="btn btn-primary btn-sm" href="{{ route('payment.alipay', ['order' => $order->id]) }}">Alipay</a>
-  <a class="btn btn-success btn-sm" href="">Paypal</a>
+<a class="btn btn-success btn-sm" onclick="clickFakeButton()">Paypal</a>
 </div>
+
+
+
+
 @endif
 <!-- pay btn end -->
 <!-- Show Confirmed Goods Receipt button if the order's shipping status is Shipped -->
@@ -180,5 +184,26 @@
   </div>
 </div>
 </div>
+
+ <script>
+     const amount = document.getElementById("total-amount").innerHTML.split("$")[1];
+     paypal.Buttons({
+    createOrder: function(data, actions) {
+      return actions.order.create({
+        purchase_units: [{
+          amount: {
+            value: parseFloat(amount)
+          }
+        }]
+      });
+    },  onApprove: function(data, actions) {
+      // Capture the funds from the transaction
+      return actions.order.capture().then(function(details) {
+        // Show a success message to your buyer
+        alert('Transaction completed by ' + details.payer.name.given_name);
+        //TODO: navigate to the successful payment page
+      });
+    }
+  }).render('body');</script>
 </div>
 @endsection

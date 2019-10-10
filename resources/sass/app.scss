@@ -723,6 +723,14 @@ body {
 }
 
 
+/*paypal*/
+
+.paypal-buttons{
+    position: relative;
+    left: 24%;
+    top: 50px;
+}
+
 /* Order-detail */
 
 .orders-show-page {
@@ -891,3 +899,4 @@ body {
     border-radius: 0px;
   }
 }
+
