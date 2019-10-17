@@ -2,8 +2,8 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
 use Ramsey\Uuid\Uuid;
+use Illuminate\Database\Eloquent\Model;
 
 class Order extends Model
 {
@@ -104,16 +104,19 @@ class Order extends Model
         return false;
     }
 
+
     public static function getAvailableRefundNo()
     {
         do {
             // Uuid class can be used to generate strings with large probability of not repeating
             $no = Uuid::uuid4()->getHex();
-            // In order to avoid duplication, need to look in the database after the build to see if the same refund order number already exists.
+
         } while (self::query()->where('refund_no', $no)->exists());
 
         return $no;
     }
+
+
 
     public function couponCode()
     {

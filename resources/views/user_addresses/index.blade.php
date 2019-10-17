@@ -19,7 +19,7 @@
               <th>Phone</th>
               <th>Action</th>
             </tr>
-            </thead>s
+            </thead>
             <tbody>
             @foreach($addresses as $address)
               <tr>

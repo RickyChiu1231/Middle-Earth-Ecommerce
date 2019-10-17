@@ -3,7 +3,7 @@
     <h3 class="box-title">Order No.：{{ $order->no }}</h3>
     <div class="box-tools">
       <div class="btn-group float-right" style="margin-right: 10px">
-        <a href="{{ route('admin.orders.index') }}" class="btn btn-sm btn-default"><i class="fa fa-list"></i> 列表</a>
+        <a href="{{ route('admin.orders.index') }}" class="btn btn-sm btn-default"><i class="fa fa-list"></i> List</a>
       </div>
     </div>
   </div>
@@ -35,13 +35,13 @@
       @foreach($order->items as $item)
         <tr>
           <td>{{ $item->product->title }} {{ $item->productSku->title }}</td>
-          <td>￥{{ $item->price }}</td>
+          <td>${{ $item->price }}</td>
           <td>{{ $item->amount }}</td>
         </tr>
       @endforeach
       <tr>
         <td>Total Price：</td>
-        <td>￥{{ $order->total_amount }}</td>
+        <td>${{ $order->total_amount }}</td>
         <td>Shipment Status：</td>
         <td>{{ \App\Models\Order::$shipStatusMap[$order->ship_status] }}</td>
       </tr>
@@ -154,10 +154,10 @@
     // Agree button click event
     $('#btn-refund-agree').click(function() {
       swal({
-        title: 'Are you sure to refund the order?',
+        title: 'Confirm to refund the user？',
         type: 'warning',
         showCancelButton: true,
-        confirmButtonText: "Confirm",
+        confirmButtonText: "Yes",
         cancelButtonText: "Cancel",
         showLoaderOnConfirm: true,
         preConfirm: function() {
@@ -165,12 +165,13 @@
             url: '{{ route('admin.orders.handle_refund', [$order->id]) }}',
             type: 'POST',
             data: JSON.stringify({
-              agree: true, // Means agrees to refund
+              agree: true,
               _token: LA.token,
             }),
             contentType: 'application/json',
           });
-        }
+        },
+        allowOutsideClick: false
       }).then(function (ret) {
         // If the user clicks the "Cancel" button, no action is taken.
         if (ret.dismiss === 'cancel') {
@@ -180,10 +181,11 @@
           title: 'Success',
           type: 'success'
         }).then(function() {
-          // reload the page
+          // Refresh the page when the user clicks the button on swal
           location.reload();
         });
       });
     });
-  });
+
+});
 </script>

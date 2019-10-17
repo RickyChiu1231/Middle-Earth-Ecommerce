@@ -117,7 +117,7 @@
               swal(error.response.data.msg, '', 'error');
             }  else {
               // Otherwise it should be system errro
-              swal('system error', '', 'error');
+              swal('Please activate your account first', '', 'error');
             }
           });
       });
@@ -158,7 +158,7 @@
               swal({content: $(html)[0], icon: 'error'})
             } else {
               // Otherwise should be system error
-              swal('system error', '', 'error');
+              swal('Please activate your account first', '', 'error');
             }
           })
       });

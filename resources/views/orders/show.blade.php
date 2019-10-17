@@ -185,6 +185,7 @@
 </div>
 </div>
 
+<!--
  <script>
      const amount = document.getElementById("total-amount").innerHTML.split("$")[1];
      paypal.Buttons({
@@ -205,5 +206,8 @@
       });
     }
   }).render('body');</script>
+-->
+
+
 </div>
 @endsection
